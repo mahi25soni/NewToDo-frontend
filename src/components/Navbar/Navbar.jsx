@@ -1,10 +1,18 @@
 import React from 'react'
+import './Navbar.css'
 
 export default function Navbar() {
-    console.log("lsdifjsdlfkj")
   return (
     <>
-     This is a navbar bro
+     <div id='navbar'>
+
+        <h1 className='navbar-title'>ToDo App</h1>
+        <div className='navbar-buttons'>
+          <button>SignUp</button>
+          <button>Login</button>
+        </div>
+
+     </div>
     </>
   )
 }

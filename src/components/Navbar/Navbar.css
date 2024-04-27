@@ -1,0 +1,27 @@
+#navbar {
+    position: sticky;
+    top: 0; 
+    height: 1rem;
+    padding: 1.3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    border: 2px solid blueviolet;
+    border-radius: 10px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    background-color: white;
+}
+
+.navbar-title {
+    font-weight: 900;
+    font-family: cursive, sans-serif;
+    color: blueviolet;
+}
+
+.navbar-buttons {
+
+}
+
