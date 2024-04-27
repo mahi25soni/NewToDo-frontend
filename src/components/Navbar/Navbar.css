@@ -21,7 +21,9 @@
     color: blueviolet;
 }
 
-.navbar-buttons {
+.navbar-buttons Button{
+    margin-left: 3px;
+    margin-right: 3px;
 
 }
 

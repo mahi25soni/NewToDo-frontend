@@ -1,5 +1,6 @@
 import React from 'react'
 import './Navbar.css'
+import Button from '../buttons/Button'
 
 export default function Navbar() {
   return (
@@ -8,8 +9,8 @@ export default function Navbar() {
 
         <h1 className='navbar-title'>ToDo App</h1>
         <div className='navbar-buttons'>
-          <button>SignUp</button>
-          <button>Login</button>
+          <Button name={"Login"}></Button>
+          <Button name={"SignUp"}></Button>
         </div>
 
      </div>
