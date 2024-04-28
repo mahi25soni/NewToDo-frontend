@@ -8,15 +8,16 @@ export default function Task({title, desc}) {
       type="checkbox"
       name="taskDone"
       id=""
+      onClick={() => console.log('sfdkjsdfskjdfh')}
     />
     <div className="taskContent">
       <h2 style={{
-        color : "blueviolet"
+        color : "#0856a3"
       }}>The first heading is almost first heading</h2>
 
       <span >Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro voluptas inventore eveniet laboriosam placeat incidunt distinctio nihil suscipit, animi eum obcaecati. Quam cumque perspiciatis ducimus doloremque at sit quisquam soluta.</span>
     </div>
-    <h3 id="crossSign">X</h3>
+    <h3 onClick={() => console.log("sdfjskjdfhkffskdfjhskfdjhskjdfhskldjfhslkdjfhljf")} id="crossSign">X</h3>
   </div>
   )
 }

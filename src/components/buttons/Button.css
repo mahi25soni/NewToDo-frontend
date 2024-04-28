@@ -5,7 +5,7 @@ button {
     font-size: 1rem;
     font-weight: bold;
     font-family: cursive;
-    color : blueviolet;
+    color : #0856a3;
     border: 2px solid rgb(16, 39, 71);
 
 
@@ -13,7 +13,7 @@ button {
 }
 
 button:hover {
-    background-color: blueviolet;
+    background-color: #0856a3;
     color: white;
     border: none;
     transition-duration: 0.5s;
