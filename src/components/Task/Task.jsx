@@ -12,7 +12,7 @@ export default function Task({title, desc}) {
     />
     <div className="taskContent">
       <h2 style={{
-        color : "#0856a3"
+        color : "#b57d0d"
       }}>The first heading is almost first heading</h2>
 
       <span >Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro voluptas inventore eveniet laboriosam placeat incidunt distinctio nihil suscipit, animi eum obcaecati. Quam cumque perspiciatis ducimus doloremque at sit quisquam soluta.</span>
