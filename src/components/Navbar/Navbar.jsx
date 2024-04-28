@@ -1,17 +1,25 @@
 import React from 'react'
 import './Navbar.css'
 import Button from '../buttons/Button'
+import {Link} from 'react-router-dom'
 
 export default function Navbar() {
   return (
     <>
      <div id='navbar'>
+     <Link to="/" style={{ textDecoration: 'none' }}>
+  <h1 className='navbar-title'>ToDo</h1>
+</Link>
 
-        <h1 className='navbar-title'>ToDo App</h1>
+        
         <div className='navbar-buttons'>
-          <Button name={"Login"}></Button>
-          <Button name={"SignUp"}></Button>
-        </div>
+      <Link to="/login">
+        <Button name={"Login"}></Button>
+      </Link>
+      <Link to="/signup">
+        <Button name={"SignUp"}></Button>
+      </Link>
+    </div>
 
      </div>
     </>
