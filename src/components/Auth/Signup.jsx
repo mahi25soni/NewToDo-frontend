@@ -10,7 +10,7 @@ export default function Signup() {
 
         <div>
             <form action="" style={{
-                display : "flex",
+                display : "flex", 
                 flexDirection : "column",
                 alignItems : "center"
             }}>

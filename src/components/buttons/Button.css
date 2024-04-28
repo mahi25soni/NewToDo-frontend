@@ -16,4 +16,6 @@ button:hover {
     background-color: blueviolet;
     color: white;
     border: none;
+    transition-duration: 0.5s;
 }
+
