@@ -15,9 +15,9 @@ export default function Login() {
                 flexDirection : "column",
                 alignItems : "center"
             }}>
-                <input type="text" name="email" id="" placeholder='Enter your email'/>
+                <input className="authInput" type="text" name="email" id="" placeholder='Enter your email'/>
 
-                <input type="text" name="password" id="" placeholder='Enter your password'/>
+                <input className="authInput" type="text" name="password" id="" placeholder='Enter your password'/>
 
                 <button style={{
                     marginTop : "1rem"

@@ -22,7 +22,7 @@
     border-radius: 5%;
 }
 
-input {
+.authInput {
     width: 80%;
     margin: 0.5rem 0;
     height: 2rem;
@@ -35,6 +35,6 @@ input {
 
 }
 
-input:focus {
+.authInput:focus {
     outline: 2px solid rgb(16, 39, 71);
 }

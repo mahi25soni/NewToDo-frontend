@@ -1,0 +1,46 @@
+
+  
+  .task {
+    display: flex;
+    align-items: start;
+    padding: 2rem;
+    width: 50%;
+    /* margin-right: 20px; Adjust spacing between tasks as needed */
+  }
+  
+  .taskContent {
+    margin : 0 10px;
+    
+  }
+
+  .taskContent * {
+    margin : 0 0 0.5rem 0;    
+  }
+
+  .taskContent span {
+    color : rgb(16, 39, 71);
+
+  }
+  
+  .getTaskCheckbox {
+    /* Add any styles for checkboxes here */
+    cursor: pointer;
+    border-radius: 50%;
+
+  }
+
+
+
+  
+  #crossSign {
+    margin-top: 0;
+    font-weight: bold;
+    font-family: sans-serif;
+    color : red;
+  }
+  #crossSign:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: 0.5s;
+
+  }
