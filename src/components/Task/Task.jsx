@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './AllTasks.css'
+import { getAllTask } from '../../apis/AllApi'
+import { useSearchParams } from 'react-router-dom'
 export default function Task({title, desc}) {
+
   return (
     <div className="task">
     <input
@@ -13,9 +16,9 @@ export default function Task({title, desc}) {
     <div className="taskContent">
       <h2 style={{
         color : "#b57d0d"
-      }}>The first heading is almost first heading</h2>
+      }}>{title}</h2>
 
-      <span >Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro voluptas inventore eveniet laboriosam placeat incidunt distinctio nihil suscipit, animi eum obcaecati. Quam cumque perspiciatis ducimus doloremque at sit quisquam soluta.</span>
+      <span >{desc}</span>
     </div>
     <h3 onClick={() => console.log("sdfjskjdfhkffskdfjhskfdjhskjdfhskldjfhslkdjfhljf")} id="crossSign">X</h3>
 
