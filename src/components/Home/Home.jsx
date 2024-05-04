@@ -17,6 +17,7 @@ export default function Home() {
   const setAll_task = useSetRecoilState(taskList)
   
   var token = localStorage.getItem("user_login_token");
+  console.log("token in home is", token)
 
   useEffect(() => {
     if (!token) {

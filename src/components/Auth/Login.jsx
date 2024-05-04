@@ -3,6 +3,8 @@ import "./Auth.css";
 import lendpage from "../../assets/photu.png";
 import { BASE_URL, loginApi } from "../../apis/AllApi";
 import { useNavigate } from "react-router-dom";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { userToken } from "../../store/variable";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -11,7 +13,7 @@ export default function Login() {
     password: "",
   });
 
-  const [token, setToken] = useState("")
+  const [token, setToken] = useRecoilState(userToken)
 
   function getLoginData(e) {
     e.preventDefault();
@@ -21,11 +23,13 @@ export default function Login() {
   async function callApi(e) {
     e.preventDefault();
     const loginResponse = await loginApi(userdata);
+    console.log("the login response is ", loginResponse)
     setToken(loginResponse.token)
 
 }
 
   useEffect(() => {
+    console.log("login, useEffect, token is ", token)
     if (token) {
         navigate("/")
     }
