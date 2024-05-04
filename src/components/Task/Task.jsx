@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import './AllTasks.css'
-import { getAllTask } from '../../apis/AllApi'
+import { deleteOneTask, getAllTask } from '../../apis/AllApi'
 import { useSearchParams } from 'react-router-dom'
-export default function Task({title, desc}) {
+import { useSetRecoilState } from 'recoil'
+import { taskList } from '../../store/variable'
+export default function Task({title, desc, id, token}) {
 
-  
+  const setTask_list = useSetRecoilState(taskList)
+  const delete_task = async (task_id) => {
+    const deleteResponse = await deleteOneTask(task_id, token)
+    setTask_list(deleteResponse.data)
+  }
+
   return (
     <div className="task">
     <input
@@ -21,7 +28,7 @@ export default function Task({title, desc}) {
 
       <span >{desc}</span>
     </div>
-    <h3 onClick={() => console.log("sdfjskjdfhkffskdfjhskfdjhskjdfhskldjfhslkdjfhljf")} id="crossSign">X</h3>
+    <h3 onClick={() => delete_task(id)} id="crossSign">X</h3>
 
     
   </div>

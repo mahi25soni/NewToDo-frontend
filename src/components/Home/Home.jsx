@@ -4,7 +4,7 @@ import "./Home.css";
 import AllTasks from "../Task/AllTasks";
 import { useNavigate } from "react-router-dom";
 import { addTask , getAllTask} from "../../apis/AllApi";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { taskList } from "../../store/variable";
 
 export default function Home() {
@@ -14,9 +14,9 @@ export default function Home() {
     title: "",
     description: "",
   });
-  const [all_task, setAll_task] = useRecoilState(taskList)
+  const setAll_task = useSetRecoilState(taskList)
   
-  const token = localStorage.getItem("user_login_token");
+  var token = localStorage.getItem("user_login_token");
 
   useEffect(() => {
     if (!token) {
@@ -30,7 +30,6 @@ export default function Home() {
       setAll_task(final.data)
     })();
   }, []);
-
 
 
   function getTaskData (e) {

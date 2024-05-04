@@ -58,5 +58,17 @@ export const getAllTask = async (token) => {
     
   const output = await response.json();
   return output;
+}
 
+export const deleteOneTask = async (task_id, token) => {
+  const response = await fetch(BASE_URL + `/task/${task_id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      "authorization" : `Bearer ${token}`
+    }
+  })
+    
+  const output = await response.json();
+  return output;
 }
