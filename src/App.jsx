@@ -12,6 +12,7 @@ function App() {
 
   return (
     <RecoilRoot>
+
     <BrowserRouter>
     <Navbar></Navbar>
     <Routes>

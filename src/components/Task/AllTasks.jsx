@@ -4,23 +4,23 @@ import "./AllTasks.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Task from "./Task";
 import { getAllTask } from "../../apis/AllApi";
-import { useRecoilValue } from "recoil";
-import { taskList } from "../../store/variable";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { taskList, newTaskVariable } from "../../store/variable";
 
 
 const AllTask = memo(function AllTask({token}) {
-  console.log("token inside all tasks is ", token);
-  const all_task = useRecoilValue(taskList);
+  const all_task = useRecoilValue(newTaskVariable)
 
+  console.log("all task ", all_task)
   return (
     <>
-      {all_task.map((task) => (
+      {all_task === "Invalid token" ? "" : all_task.map((task) => (
         <Task key={task._id} id={task._id} title={task.title} desc={task.description} token={token} />
       ))}
     </>
   );
 })
 
-export default AllTask
+export default AllTask;
 
 

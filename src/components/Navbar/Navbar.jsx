@@ -8,6 +8,8 @@ import { useSetRecoilState, useRecoilState } from "recoil";
 export default function Navbar() {
   const [token, setToken] = useRecoilState(userToken)
 
+  console.log("navabar token is ", token)
+
   return (
     <>
       <div id="navbar">

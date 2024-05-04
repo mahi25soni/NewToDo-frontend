@@ -3,10 +3,10 @@ import './AllTasks.css'
 import { deleteOneTask, getAllTask } from '../../apis/AllApi'
 import { useSearchParams } from 'react-router-dom'
 import { useSetRecoilState } from 'recoil'
-import { taskList } from '../../store/variable'
+import { newTaskVariable, taskList } from '../../store/variable'
 export default function Task({title, desc, id, token}) {
 
-  const setTask_list = useSetRecoilState(taskList)
+  const setTask_list = useSetRecoilState(newTaskVariable)
   const delete_task = async (task_id) => {
     const deleteResponse = await deleteOneTask(task_id, token)
     setTask_list(deleteResponse.data)

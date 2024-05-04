@@ -5,7 +5,7 @@ import AllTasks from "../Task/AllTasks";
 import { useNavigate } from "react-router-dom";
 import { addTask , getAllTask} from "../../apis/AllApi";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { taskList } from "../../store/variable";
+import { newTaskVariable, taskList, userToken } from "../../store/variable";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -14,23 +14,29 @@ export default function Home() {
     title: "",
     description: "",
   });
-  const setAll_task = useSetRecoilState(taskList)
+  const setAll_task = useSetRecoilState(newTaskVariable)
   
   var token = localStorage.getItem("user_login_token");
+  // const setToken = useSetRecoilState(userToken)
+  // setToken(token)
   console.log("token in home is", token)
 
   useEffect(() => {
     if (!token) {
       navigate("/login");
     }
+    console.log("home, login wala useEffect")
   }, []);
 
+    
   useEffect(() => {
     (async () => {
       const final = await getAllTask(token);
       setAll_task(final.data)
+      console.log("allTask, useEffect to get all task")
     })();
   }, []);
+
 
 
   function getTaskData (e) {

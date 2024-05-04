@@ -23,13 +23,11 @@ export default function Login() {
   async function callApi(e) {
     e.preventDefault();
     const loginResponse = await loginApi(userdata);
-    console.log("the login response is ", loginResponse)
     setToken(loginResponse.token)
 
 }
 
   useEffect(() => {
-    console.log("login, useEffect, token is ", token)
     if (token) {
         navigate("/")
     }
