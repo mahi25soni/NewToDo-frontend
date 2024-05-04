@@ -1,27 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState , memo} from "react";
 
 import "./AllTasks.css";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Task from "./Task";
-import { getAllTask } from '../../apis/AllApi';
+import { getAllTask } from "../../apis/AllApi";
+import { useRecoilValue } from "recoil";
+import { taskList } from "../../store/variable";
 
-export default function AllTasks() {
-  const token = localStorage.getItem("user_login_token")
-  const [all_task, setAll_task] = useState([])
 
-  useEffect(async () => {
-    const output = await getAllTask(token)
-    console.log("outside the output", output)
-    setAll_task(output.data)
-  },[])
-
+export default function AllTasks({token}) {
+  const all_task = useRecoilValue(taskList)
   return (
     <>
-    {all_task.map(task => 
-    <Task title={task.title} desc={task.description}></Task>
-    )}
+      {all_task.map((task) => (
+        <Task key={task._id} title={task.title} desc={task.description}></Task>
+      ))}
     </>
-
- 
   );
 }

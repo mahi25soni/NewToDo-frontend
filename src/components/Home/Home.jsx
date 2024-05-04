@@ -3,34 +3,47 @@ import Button from "../buttons/Button";
 import "./Home.css";
 import AllTasks from "../Task/AllTasks";
 import { useNavigate } from "react-router-dom";
-import { addTask } from "../../apis/AllApi";
+import { addTask , getAllTask} from "../../apis/AllApi";
+import { useRecoilState } from "recoil";
+import { taskList } from "../../store/variable";
 
 export default function Home() {
   const navigate = useNavigate();
-  // const [token, setToken] = useState();
 
   const [taskinfo, setTaskinfo] = useState({
     title: "",
     description: "",
   });
+  const [all_task, setAll_task] = useRecoilState(taskList)
   
   const token = localStorage.getItem("user_login_token");
+
   useEffect(() => {
     if (!token) {
       navigate("/login");
     }
-  }, [token]);
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      const final = await getAllTask(token);
+      setAll_task(final.data)
+    })();
+  }, []);
+
+
 
   function getTaskData (e) {
     e.preventDefault();
     setTaskinfo({...taskinfo, [e.target.name] : e.target.value})
   }
 
-  function callApi(e) {
+  async function callApi(e) {
     e.preventDefault();
-    const taskResponse = addTask(taskinfo, token)
-    console.log("the task data is ", taskResponse)
+    const taskResponse = await addTask(taskinfo, token)
+    setAll_task(prevTasks => [taskResponse.data, ...prevTasks]);
   }
+
 
   return (
     <>
@@ -53,8 +66,7 @@ export default function Home() {
         />
         <button onClick={callApi}>Go ahead</button>
       </div>
-
-      <AllTasks></AllTasks>
+      <AllTasks token={token}></AllTasks>
     </>
   );
 }

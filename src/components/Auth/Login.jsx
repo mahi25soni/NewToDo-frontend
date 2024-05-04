@@ -6,12 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate();
-  const [token, setToken] = useState("");
   const [userdata, setUserdata] = useState({
     email: "",
     password: "",
   });
 
+  const [token, setToken] = useState("")
 
   function getLoginData(e) {
     e.preventDefault();
@@ -21,11 +21,13 @@ export default function Login() {
   async function callApi(e) {
     e.preventDefault();
     const loginResponse = await loginApi(userdata);
-    setToken(loginResponse.token);
-  }
+    setToken(loginResponse.token)
+
+}
+
   useEffect(() => {
     if (token) {
-      navigate("/");
+        navigate("/")
     }
   }, [token]);
 

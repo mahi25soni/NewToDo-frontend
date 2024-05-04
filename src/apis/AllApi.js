@@ -34,8 +34,8 @@ export const loginApi = async (requestBody) => {
   return output;
 };
 
-export const addTask = (requestBody, token) => {
-    fetch(BASE_URL + "/task", {
+export const addTask = async (requestBody, token) => {
+    const response = await fetch(BASE_URL + "/task", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,17 +43,8 @@ export const addTask = (requestBody, token) => {
         },
         body: JSON.stringify(requestBody),
       })
-        .then(async (response) => {
-            console.log("reponse is ", response)
-          const output = await response.json();
-          localStorage.setItem("user_login_token", output.token);
-
-          return output;
-
-        })
-        .catch((err) => {
-          console.log("The error is ", err);
-        });
+      const output = await response.json()
+      return output;
 }
 
 export const getAllTask = async (token) => {
@@ -66,7 +57,6 @@ export const getAllTask = async (token) => {
   })
     
   const output = await response.json();
-  console.log(output)
   return output;
 
 }
